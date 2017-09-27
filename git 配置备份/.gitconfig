@@ -1,0 +1,24 @@
+[user]
+	name = hg-li
+	email = hg-li@mygzb.com
+[core]
+	quotepath = false
+	editor = 'D:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin
+	autocrlf = input
+[diff]
+	tool = bc3
+	external = d:/dev_kit/PortableGit/git-diff-wrapper.sh
+[difftool "bc3"]
+	path = D:/dev_kit/Beyond Compare 3/BComp.exe
+[merge]
+	tool = bc3
+[mergetool "bc3"]
+	path = D:/dev_kit/Beyond Compare 3/BComp.exe
+[alias]
+	st = status
+	co = checkout
+	ci = commit
+	br = branch
+	brs = branch -a --format='%(HEAD) %(if)%(HEAD)%(then)%(color:green)%(refname:short)%(if)%(upstream)%(then) -> %(upstream:track) %(upstream:short) %(color:bold magenta)(track)%(color:reset)%(end)%(color:reset)%(else)%(refname:short)%(if)%(upstream)%(then) -> %(upstream:track) %(upstream:short) %(color:bold magenta)(track)%(color:reset)%(end)%(end) \n\t %(color:bold yellow)%(objectname:short)%(color:reset) | %(color:green)%(committerdate:relative)%(color:reset) | %(color:bold yellow)%(authorname)%(color:reset) | %(contents:subject)'
+	unstage = reset HEAD
+	lg = log --color --graph --decorate --pretty=format:'%C(bold yellow)%h%Creset - %C(bold yellow)%d%Creset %Cgreen%cr%Creset | %Cgreen%cd%Creset | %C(bold yellow)%an%Creset | %s' --abbrev-commit --date-order --date=format:'%Y-%m-%d %H:%M:%S %a'
