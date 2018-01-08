@@ -585,8 +585,15 @@ annotated (and possibly signed) tag.</p>
 <dt class="hdlist1">--ff-only</dt>
 <dd>
 <p>Refuse to merge and exit with a non-zero status unless the
-current <code>HEAD</code> is already up-to-date or the merge can be
+current <code>HEAD</code> is already up to date or the merge can be
 resolved as a fast-forward.</p>
+</dd>
+<dt class="hdlist1">-S[&lt;keyid&gt;]</dt>
+<dt class="hdlist1">--gpg-sign[=&lt;keyid&gt;]</dt>
+<dd>
+<p>GPG-sign the resulting merge commit. The <code>keyid</code> argument is
+optional and defaults to the committer identity; if specified,
+it must be stuck to the option without a space.</p>
 </dd>
 <dt class="hdlist1">--log[=&lt;n&gt;]</dt>
 <dt class="hdlist1">--no-log</dt>
@@ -849,9 +856,11 @@ are read from <code>remote.&lt;repository&gt;.fetch</code> variables instead
 (see <a href="git-fetch.html">git-fetch</a>(1)).</p>
 <div class="paragraph">
 <p>The format of a &lt;refspec&gt; parameter is an optional plus
-<code>+</code>, followed by the source ref &lt;src&gt;, followed
+<code>+</code>, followed by the source &lt;src&gt;, followed
 by a colon <code>:</code>, followed by the destination ref &lt;dst&gt;.
-The colon can be omitted when &lt;dst&gt; is empty.</p>
+The colon can be omitted when &lt;dst&gt; is empty.  &lt;src&gt; is
+typically a ref, but it can also be a fully spelled hex object
+name.</p>
 </div>
 <div class="paragraph">
 <p><code>tag &lt;tag&gt;</code> means the same as <code>refs/tags/&lt;tag&gt;:refs/tags/&lt;tag&gt;</code>;
@@ -1244,7 +1253,8 @@ the other tree did, declaring <em>our</em> history contains all that happened in
 </dd>
 <dt class="hdlist1">theirs</dt>
 <dd>
-<p>This is the opposite of <em>ours</em>.</p>
+<p>This is the opposite of <em>ours</em>; note that, unlike <em>ours</em>, there is
+no <em>theirs</em> merge stragegy to confuse this merge option with.</p>
 </dd>
 <dt class="hdlist1">patience</dt>
 <dd>
@@ -1556,7 +1566,7 @@ version.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-08-10 20:53:48 W. Europe Daylight Time
+Last updated 2017-11-30 00:29:38 Coordinated Universal Time
 </div>
 </div>
 </body>

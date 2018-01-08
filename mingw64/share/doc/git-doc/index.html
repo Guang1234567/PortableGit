@@ -517,7 +517,8 @@ The &lt;name&gt; is expected in the same format as listed by
 <p>Note that omitting the <code>=</code> in <code>git -c foo.bar ...</code> is allowed and sets
 <code>foo.bar</code> to the boolean true value (just like <code>[foo]bar</code> would in a
 config file). Including the equals but with an empty value (like <code>git -c
-foo.bar= ...</code>) sets <code>foo.bar</code> to the empty string.</p>
+foo.bar= ...</code>) sets <code>foo.bar</code> to the empty string which <code>git config
+--bool</code> will convert to <code>false</code>.</p>
 </div>
 </dd>
 <dt class="hdlist1">--exec-path[=&lt;path&gt;]</dt>
@@ -616,6 +617,11 @@ magic ":(glob)"</p>
 <dd>
 <p>Add "icase" magic to all pathspec. This is equivalent to setting
 the <code>GIT_ICASE_PATHSPECS</code> environment variable to <code>1</code>.</p>
+</dd>
+<dt class="hdlist1">--no-optional-locks</dt>
+<dd>
+<p>Do not perform optional operations that require locks. This is
+equivalent to setting the <code>GIT_OPTIONAL_LOCKS</code> to <code>0</code>.</p>
 </dd>
 </dl>
 </div>
@@ -1266,7 +1272,7 @@ users typically do not use them directly.</p>
 </dd>
 <dt class="hdlist1"><a href="git-interpret-trailers.html">git-interpret-trailers</a>(1)</dt>
 <dd>
-<p>help add structured information into commit messages.</p>
+<p>add or parse structured information in commit messages.</p>
 </dd>
 <dt class="hdlist1"><a href="git-mailinfo.html">git-mailinfo</a>(1)</dt>
 <dd>
@@ -1866,18 +1872,28 @@ submodule initialization from an untrusted repository or for programs
 which feed potentially-untrusted URLS to git commands.  See
 <a href="git-config.html">git-config</a>(1) for more details.</p>
 </dd>
+<dt class="hdlist1"><code>GIT_OPTIONAL_LOCKS</code></dt>
+<dd>
+<p>If set to <code>0</code>, Git will complete any requested operation without
+performing any optional sub-operations that require taking a lock.
+For example, this will prevent <code>git status</code> from refreshing the
+index as a side effect. This is useful for processes running in
+the background which do not want to cause lock contention with
+other operations on the repository.  Defaults to <code>1</code>.</p>
+</dd>
 <dt class="hdlist1"><code>GIT_REDIRECT_STDIN</code></dt>
 <dt class="hdlist1"><code>GIT_REDIRECT_STDOUT</code></dt>
 <dt class="hdlist1"><code>GIT_REDIRECT_STDERR</code></dt>
 <dd>
-<p>(EXPERIMENTAL) Windows-only: allow redirecting the standard
-input/output/error handles. This is particularly useful in
-multi-threaded applications where the canonical way to pass
-standard handles via <code>CreateProcess()</code> is not an option because
-it would require the handles to be marked inheritable (and
-consequently <strong>every</strong> spawned process would inherit them, possibly
-blocking regular Git operations). The primary intended use case
-is to use named pipes for communication.</p>
+<p>Windows-only: allow redirecting the standard input/output/error
+handles to paths specified by the environment variables. This is
+particularly useful in multi-threaded applications where the
+canonical way to pass standard handles via <code>CreateProcess()</code> is
+not an option because it would require the handles to be marked
+inheritable (and consequently <strong>every</strong> spawned process would
+inherit them, possibly blocking regular Git operations). The
+primary intended use case is to use named pipes for communication
+(e.g. <code>\\.\pipe\my-git-stdin-123</code>).</p>
 <div class="paragraph">
 <p>Two special values are supported: <code>off</code> will simply close the
 corresponding standard handle, and if <code>GIT_REDIRECT_STDERR</code> is
@@ -2033,7 +2049,7 @@ subscribed to the list to send a message there.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-08-10 20:53:48 W. Europe Daylight Time
+Last updated 2017-11-30 00:29:38 Coordinated Universal Time
 </div>
 </div>
 </body>

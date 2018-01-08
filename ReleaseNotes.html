@@ -15,9 +15,9 @@
 </ul>
 </div>
 <div class="content">
-<h1>Git for Windows v2.14.1 Release Notes</h1>
+<h1>Git for Windows v2.15.1(2) Release Notes</h1>
 
-<p>Latest update: August 10th 2017</p>
+<p>Latest update: November 30th 2017</p>
 
 <h2>Introduction</h2>
 
@@ -56,6 +56,137 @@
 <p>Git for Windows also contains Embedded CAcert Root Certificates. For more information please go to <a href="https://www.cacert.org/policy/RootDistributionLicense.php">https://www.cacert.org/policy/RootDistributionLicense.php</a>.</p>
 
 <p>This package contains software from a number of other projects including Bash, zlib, curl, tcl/tk, perl, MSYS2 and a number of libraries and utilities from the GNU project, licensed under the GNU General Public License. Likewise, it contains Perl which is dual licensed under the GNU General Public License and the Artistic License.</p>
+
+<h2>Changes since Git for Windows v2.15.1 (November 29th 2017)</h2>
+
+<h3>Bug Fixes</h3>
+
+<ul>
+<li>The bug introduced into Git for Windows v2.15.1 where <code>vim</code> would show an ugly warning upon startup <a href="https://github.com/git-for-windows/git/issues/1382">was fixed</a>.</li>
+</ul>
+
+<h2>Changes since Git for Windows v2.15.0 (October 30th 2017)</h2>
+
+<h3>New Features</h3>
+
+<ul>
+<li>Comes with <a href="https://github.com/git/git/blob/v2.15.1/Documentation/RelNotes/2.15.1.txt">Git v2.15.1</a>.</li>
+<li>Operations in massively-sparse worktrees <a href="https://github.com/git-for-windows/git/pull/1344">are now much faster if <code>core.fscache = true</code></a>.</li>
+<li>It is <a href="https://github.com/git-for-windows/build-extra/pull/161">now possible to configure <code>nano</code></a> or <a href="https://github.com/git-for-windows/git/issues/291">Notepad++</a> as Git's default editor <a href="https://www.xkcd.com/378/">instead of <code>vim</code></a>.</li>
+<li>Comes with <a href="https://www.openssl.org/news/cl102.txt">OpenSSL v1.0.2m</a>.</li>
+<li>Git for Windows' updater <a href="https://github.com/git-for-windows/build-extra/commit/master">now uses non-intrusive toast notifications on Windows 8, 8.1 and 10</a>.</li>
+<li>Running <code>git fetch</code> in a repository with lots of refs <a href="https://github.com/git-for-windows/git/pull/1379">is now considerably faster</a>.</li>
+<li>Comes with <a href="https://curl.haxx.se/changes.html#7_57_0">cURL v7.57.0</a>.</li>
+</ul>
+
+<h3>Bug Fixes</h3>
+
+<ul>
+<li>The experimental <code>--show-ignored-directory</code> option of <code>git status</code> which was removed in Git for Windows v2.15.0 without warning <a href="https://github.com/git-for-windows/git/pull/1354">has been reintroduced as a deprecated option</a>.</li>
+<li>The <code>git update</code> command (to auto-update Git for Windows) will <a href="https://github.com/git-for-windows/git/issues/1363">now also work behind proxies</a>.</li>
+</ul>
+
+<h2>Changes since Git for Windows v2.14.3 (October 23rd 2017)</h2>
+
+<h3>New Features</h3>
+
+<ul>
+<li>Comes with <a href="https://github.com/git/git/blob/v2.15.0/Documentation/RelNotes/2.15.0.txt">Git v2.15.0</a>.</li>
+</ul>
+
+<h3>Bug Fixes</h3>
+
+<ul>
+<li>The auto-updater tried to run at a precise time, and did not run when the computer was switched off at that time. <a href="https://github.com/git-for-windows/build-extra/commit/459b6e85c">Now it runs as soon after the scheduled time as possible</a>.</li>
+<li>The auto-updater <a href="https://github.com/git-for-windows/build-extra/commit/1418ee7e8">no longer suggests to downgrade from Release Candidates</a>.</li>
+<li>When the auto-updater asked the user whether they want to upgrade to a certain version, and the user declined, <a href="https://github.com/git-for-windows/build-extra/commit/c0f7634af">the auto-updater will not bother the user about said version again</a>.</li>
+<li>The installer, when run with /SKIPIFINUSE=1, <a href="https://github.com/git-for-windows/build-extra/commit/db3521c140154b3923e304e4271176958da1f048">now detects whether <em>any</em> executable in Git for Windows' installation is run</a></li>
+<li>Git for Windows <a href="https://github.com/git-for-windows/build-extra/commit/c86d164f2c9d5c79cd95f1fda881f9e80ca9dc3a">no longer includes (non-working) <code>xmlcatalog.exe</code> and <code>xmllint.exe</code></a>.</li>
+</ul>
+
+<h2>Changes since Git for Windows v2.14.2(3) (October 12th 2017)</h2>
+
+<h3>New Features</h3>
+
+<ul>
+<li>Comes with <a href="https://github.com/git/git/blob/v2.14.3/Documentation/RelNotes/2.14.3.txt">Git v2.14.3</a>.</li>
+<li>Git for Windows <a href="https://github.com/git-for-windows/build-extra/pull/148">now ships with a diff helper for OpenOffice documents</a>.</li>
+<li>Comes with <a href="https://github.com/git-lfs/git-lfs/releases/tag/v2.3.4">Git LFS v2.3.4</a>.</li>
+<li>Comes with <a href="https://curl.haxx.se/changes.html#7_56_1">cURL v7.56.1</a>.</li>
+</ul>
+
+<h3>Bug Fixes</h3>
+
+<ul>
+<li>Git for Windows <a href="https://github.com/git-for-windows/git/issues/1320">now handles worktrees at the top-level of a UNC share correctly</a>.</li>
+</ul>
+
+<h2>Changes since Git for Windows v2.14.2(2) (October 5th 2017)</h2>
+
+<h3>New Features</h3>
+
+<ul>
+<li>Comes with <a href="https://github.com/git-lfs/git-lfs/releases/tag/v2.3.3">Git LFS v2.3.3</a>.</li>
+</ul>
+
+<h3>Bug Fixes</h3>
+
+<ul>
+<li><a href="https://github.com/git-for-windows/build-extra/commit/b46fba6f44b3680210b19ef5fc9ce22ca1dcda55">Re-enabled some SSHv1 ciphers</a> since some sites (e.g. Visual Studio Team Services) rely on them for the time being.</li>
+</ul>
+
+<h2>Changes since Git for Windows v2.14.2 (September 26th 2017)</h2>
+
+<h3>New Features</h3>
+
+<ul>
+<li>Comes with <a href="https://github.com/git-for-windows/busybox-w32/commit/b4c390e17">BusyBox v1.28.0pre.16467.b4c390e17</a>.</li>
+<li>Comes with <a href="https://github.com/git-lfs/git-lfs/releases/tag/v2.3.2">Git LFS v2.3.2</a>.</li>
+<li>Comes with <a href="https://curl.haxx.se/changes.html#7_56_0">cURL v7.56.0</a>.</li>
+<li>Comes with <a href="https://www.openssh.com/txt/release-7.6">OpenSSH v7.6p1</a>.</li>
+<li>Comes with <a href="https://github.com/git-for-windows/MSYS2-packages/commit/f2caef90d2e6ba13dc16e38152003958f4db710b">patch level 4</a> of the MSYS2 runtime (Git for Windows flavor) based on <a href="https://cygwin.com/ml/cygwin-announce/2017-09/msg00056.html">Cygwin 2.9.0</a>.</li>
+</ul>
+
+<h3>Bug Fixes</h3>
+
+<ul>
+<li>A <a href="https://github.com/git-for-windows/git/issues/1312">bug</a> which caused the console window to be closed when executing certain Bash scripts <a href="https://github.com/git-for-windows/MSYS2-packages/commit/e9d0a2be2720007c2a734866ebbb4c15e503003c">was fixed</a>.</li>
+<li>A crash when calling <code>kill &lt;pid&gt;</code> for a non-existing process <a href="https://github.com/git-for-windows/git/issues/1316">was fixed</a>.</li>
+</ul>
+
+<h2>Changes since Git for Windows v2.14.1 (August 10th 2017)</h2>
+
+<h3>New Features</h3>
+
+<ul>
+<li>Comes with <a href="https://github.com/git/git/blob/v2.14.2/Documentation/RelNotes/2.14.2.txt">Git v2.14.2</a>.</li>
+<li>Comes with <a href="https://curl.haxx.se/changes.html#7_55_1">cURL v7.55.1</a>.</li>
+<li>The XP-compatibility layer emulating pthreads (which is <a href="https://git-for-windows.github.io/requirements.html">no longer needed</a>) <a href="https://github.com/git-for-windows/git/pull/1214">was dropped in favor of modern Windows threading APIs</a>; This should make threaded operations slightly faster and more robust.</li>
+<li>On Windows, UNC paths can <a href="https://github.com/git-for-windows/git/commit/a352941117bc8d00dfddd7a594adf095d084d844">now be accessed via <code>file://host/share/repo.git</code>-style paths</a>.</li>
+<li>Comes with <a href="https://github.com/git-for-windows/build-extra/pull/151">a new custom Git command <code>git update</code></a> to help keeping Git up-to-date on your machine.</li>
+<li>The Git installer now offers <a href="https://github.com/git-for-windows/build-extra/pull/155">an option to keep Git up-to-date</a> by calling <code>git update</code> regularly.</li>
+<li>Comes with <a href="https://github.com/git-for-windows/busybox-w32/commit/2739df917">BusyBox v1.28.0pre.16353.2739df917</a>.</li>
+<li>As is common elsewhere, Ctrl+Left and Ctrl+Right <a href="https://github.com/git-for-windows/build-extra/pull/156">now move word-wise in Git Bash</a>, too.</li>
+<li>Comes with <a href="https://github.com/git-for-windows/msys2-runtime/commit/874e2c8efeed9084cd065cf9ea5c0951f5afca02">patch level 2</a> of the MSYS2 runtime (Git for Windows flavor) based on <a href="https://cygwin.com/ml/cygwin-announce/2017-09/msg00056.html">Cygwin 2.9.0</a>.</li>
+<li>Comes with <a href="https://github.com/git-lfs/git-lfs/releases/tag/v2.3.0">Git LFS v2.3.0</a>.</li>
+<li>The <code>vs/master</code> branch <a href="https://github.com/git-for-windows/git/pull/1302">can now be built in Visual Studio 2017</a>, too</li>
+<li>As <a href="https://github.com/git-for-windows/git/issues/1294">requested</a> by the same user who implemented <a href="https://github.com/git-for-windows/build-extra/pull/157">the change</a>, Git for Windows now comes with <a href="https://github.com/jonas/tig"><code>tig</code></a>, a text-mode interface for Git.</li>
+</ul>
+
+<h3>Bug Fixes</h3>
+
+<ul>
+<li>It is <a href="https://github.com/git-for-windows/git/commit/70c1ff8b0ef66321d630fe49d61ee1a9b6be6a4c">now possible to override <code>http.sslBackend</code> on the command-line</a>.</li>
+<li>The installer <a href="https://github.com/git-for-windows/build-extra/commit/5e438f707027eb99da1b1b381672e6d7dbc063a8">now detects correctly whether symbolic links can be created by regular users</a>.</li>
+<li>Git Bash <a href="https://github.com/git-for-windows/build-extra/pull/152">now renders non-ASCII directories nicely</a>.</li>
+<li>A regression that caused the fetch operation with lots of refs to be a lot slower than before <a href="https://github.com/git-for-windows/git/issues/1233">was fixed</a>.</li>
+<li>The <code>git-gui.exe</code> and <code>gitk.exe</code> wrappers intended to be used in Git CMD <a href="https://github.com/git-for-windows/git/issues/1284">now handle command-line parameters correctly</a>.</li>
+<li>The <code>core.longPaths</code> setting <a href="https://github.com/git-for-windows/git/issues/1218">is now heeded when packing refs</a>, and other previously forgotten Git commands.</li>
+<li>Pressing Ctrl+Z in Git Bash <a href="https://github.com/git-for-windows/git/issues/1083">no longer kills Win32 processes (e.g. <code>git.exe</code>) anymore</a>, because POSIX job control is only available with MSYS2 processes.</li>
+<li>Git for Windows <a href="https://github.com/git-for-windows/git/commit/b5915c6ae881518927b9fa0b3c4df4d3edd37f23">now sets <code>core.fsyncObjectFiles = true</code> by default</a> which makes it a lot more fault-tolerant, say, when power is lost.</li>
+<li>A bug has been fixed where Git for Windows <a href="https://github.com/git-for-windows/git/issues/1299">could run into an infinite loop trying to rename a file</a>.</li>
+<li>Before installing Git for Windows, we already verified that no Git Bash instance is active (which would prevent files from being overwritten). We <a href="https://github.com/git-for-windows/build-extra/commit/1b93b50cf08c6cbd3200a66603d28fbd269c2f6a">now also verify that no <code>git.exe</code> processes are active, either</a>.</li>
+</ul>
 
 <h2>Changes since Git for Windows v2.14.0(2) (August 7th 2017)</h2>
 

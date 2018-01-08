@@ -445,6 +445,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 		   [(--reroll-count|-v) &lt;n&gt;]
 		   [--to=&lt;email&gt;] [--cc=&lt;email&gt;]
 		   [--[no-]cover-letter] [--quiet] [--notes[=&lt;ref&gt;]]
+		   [--progress]
 		   [&lt;common diff options&gt;]
 		   [ &lt;since&gt; | &lt;revision range&gt; ]</pre>
 </div>
@@ -534,11 +535,13 @@ reference.</p>
 the usual three.</p>
 </dd>
 <dt class="hdlist1">--indent-heuristic</dt>
+<dd>
+<p>Enable the heuristic that shift diff hunk boundaries to make patches
+easier to read. This is the default.</p>
+</dd>
 <dt class="hdlist1">--no-indent-heuristic</dt>
 <dd>
-<p>These are to help debugging and tuning experimental heuristics
-(which are off by default) that shift diff hunk boundaries to
-make patches easier to read.</p>
+<p>Disable the indent heuristic.</p>
 </dd>
 <dt class="hdlist1">--minimal</dt>
 <dd>
@@ -1189,6 +1192,10 @@ is just a single commit (that would normally be treated as a
 range are always formatted as creation patches, independently
 of this flag.</p>
 </dd>
+<dt class="hdlist1">--progress</dt>
+<dd>
+<p>Show progress reports on stderr as patches are generated.</p>
+</dd>
 </dl>
 </div>
 </div>
@@ -1679,7 +1686,7 @@ as e-mailable patches:</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-08-10 20:53:48 W. Europe Daylight Time
+Last updated 2017-11-30 00:29:38 Coordinated Universal Time
 </div>
 </div>
 </body>
